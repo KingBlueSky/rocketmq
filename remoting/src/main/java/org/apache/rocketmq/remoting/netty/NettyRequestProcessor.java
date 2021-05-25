@@ -16,13 +16,16 @@
  */
 package org.apache.rocketmq.remoting.netty;
 
-import io.netty.channel.ChannelHandlerContext;
 import org.apache.rocketmq.remoting.protocol.RemotingCommand;
+
+import io.netty.channel.ChannelHandlerContext;
 
 /**
  * Common remoting command processor
+ * @author jbwang0106
  */
 public interface NettyRequestProcessor {
+
     RemotingCommand processRequest(ChannelHandlerContext ctx, RemotingCommand request)
         throws Exception;
 

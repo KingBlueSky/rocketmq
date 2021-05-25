@@ -20,22 +20,44 @@
  */
 package org.apache.rocketmq.common.protocol.route;
 
+import org.apache.rocketmq.remoting.protocol.RemotingSerializable;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.rocketmq.remoting.protocol.RemotingSerializable;
 
+/**
+ * @author wangjiangbo@tal.com
+ */
 public class TopicRouteData extends RemotingSerializable {
+
+    /**
+     * 顺序消息配置内容，来自于kvConfig
+     */
     private String orderTopicConf;
+
+    /**
+     * 队列元数据
+     */
     private List<QueueData> queueDatas;
+
+    /**
+     * topic分布的broker元数据
+     */
     private List<BrokerData> brokerDatas;
-    private HashMap<String/* brokerAddr */, List<String>/* Filter Server */> filterServerTable;
+
+    /**
+     * broker上过滤服务器地址
+     * key --> broker地址
+     * value --> 过滤服务器地址列表
+     */
+    private HashMap<String, List<String>> filterServerTable;
 
     public TopicRouteData cloneTopicRouteData() {
         TopicRouteData topicRouteData = new TopicRouteData();
-        topicRouteData.setQueueDatas(new ArrayList<QueueData>());
-        topicRouteData.setBrokerDatas(new ArrayList<BrokerData>());
-        topicRouteData.setFilterServerTable(new HashMap<String, List<String>>());
+        topicRouteData.setQueueDatas(new ArrayList<>());
+        topicRouteData.setBrokerDatas(new ArrayList<>());
+        topicRouteData.setFilterServerTable(new HashMap<>());
         topicRouteData.setOrderTopicConf(this.orderTopicConf);
 
         if (this.queueDatas != null) {
