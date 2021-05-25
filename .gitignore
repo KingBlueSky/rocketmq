@@ -14,3 +14,7 @@ devenv
 localbin
 nohup.out
 .github/
+logs/
+storeMq/
+conf/
+docs/
