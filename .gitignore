@@ -13,8 +13,9 @@ devenv
 .DS_Store
 localbin
 nohup.out
-.github/
-logs/
-storeMq/
-conf/
-docs/
+/logs/
+/conf/
+/dev/
+/storeMq/
+/docs/
+
